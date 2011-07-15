@@ -1,0 +1,22 @@
+<% title "My profile" %>
+<p>Username: <%= @user.username%></p>
+<p><%= link_to "Find friends", users_path%>
+<h2> Profile </h2>
+<%= link_to "Edit Profile", '#' %>
+<ul>
+<p>Name:</p>
+<%= "#{@user.profile.first_name} #{@user.profile.last_name}"%>
+<p> Location:</p>
+<p><%= @user.profile.location%> 
+	<%%></p>
+<p>Industry</p>
+<p><%= @user.profile.industry%></p>
+<h3> Your friends </h3>
+<ul>
+	<% for friendship in @user.friendships %>
+	<li>
+	<%= h friendship.friend.username %>
+	(<%= link_to "remove", friendship, :method => :delete%>)
+	</li>
+	<% end %>
+</ul>

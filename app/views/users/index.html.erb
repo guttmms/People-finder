@@ -1,0 +1,15 @@
+<% title "User List" %>
+
+<div id="users">
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%=h user.username %></strong>
+      <% if user != current_user%>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <% end%>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+</div>
